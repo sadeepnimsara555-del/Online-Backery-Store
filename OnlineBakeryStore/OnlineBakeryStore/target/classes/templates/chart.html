@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="/order.css">
+</head>
+<body>
+<!-- Navigation bar with dynamic login/profile button -->
+<nav>
+    <input type="checkbox" id="res-menu">
+    <label for="res-menu">
+        <i class="fas fa-bars" id="s1"></i>
+        <i class="fas fa-times" id="s2"></i>
+    </label>
+    <h2>Your Online</h2>
+    <h1>Bakery Store</h1>
+    <ul>
+        <li><a th:href="@{/dashboard}">Home</a></li>
+        <li><a th:href="@{/order}">Order</a></li>
+        <li><a th:href="@{/chart}">Cart</a></li>
+        <li><a th:href="@{/aboutUs}">About Us</a></li>
+        <li><a th:href="@{/service}">Services</a></li>
+        <li><a th:if="${isLoggedIn and isAdmin}" href="/admin-dashboard">User Details</a></li>
+        <li th:if="${!isLoggedIn}" class="nav-button"><a href="/login">Login</a></li>
+        <li th:if="${isLoggedIn}" class="nav-button"><a href="/profile">Profile</a></li>
+    </ul>
+</nav>
+<hr>
+<hr>
+<div th:if="${isLoggedIn}">
+    <p>Welcome, <span th:text="${session.loggedInUser}"></span>! <a href="/logout">Logout</a></p>
+    <div th:if="${isAdmin}">
+        <a href="/admin-dashboard">Admin Dashboard</a>
+    </div>
+</div>
+<div th:unless="${isLoggedIn}">
+    <p><a href="/login">Login</a> | <a href="/register">Register</a></p>
+</div>
+
+<h2>Your Orders</h2>
+<div th:if="${error}" th:text="${error}" style="color: red;"></div>
+<table>
+    <thead>
+    <tr>
+        <th>Product Name</th>
+        <th>Quantity</th>
+        <th>Scheduled Time</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="order : ${orders}">
+        <td th:text="${order.productName}"></td>
+        <td th:text="${order.quantity}"></td>
+        <td th:text="${order.scheduledTime}"></td>
+        <td>
+            <a th:href="@{/order/edit(orderId=${order.id})}">Edit</a>
+            <form th:action="@{/order/delete}" method="post" style="display:inline;">
+                <input type="hidden" name="orderId" th:value="${order.id}">
+                <button type="submit">Delete</button>
+            </form>
+        </td>
+    </tr>
+    </tbody>
+</table>
+<div>
+    <a href="/order">Add New Order</a>
+</div>
+</body>
+</html>

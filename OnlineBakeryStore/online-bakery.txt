@@ -1,0 +1,39 @@
+Online Bakery Store [OnlineBakeryStore]/
+├── .idea
+├── .mvn
+├── src
+│   ├── main
+│   │   ├── java
+│   │   │   └── com
+│   │   │       └── sesc
+│   │   │           └── onlinebakerystore
+│   │   │               ├── controller
+│   │   │               │   ├── PageController.java
+│   │   │               │   └── UserController.java
+│   │   │               ├── model
+│   │   │               │   └── User.java
+│   │   │               ├── service
+│   │   │               │   └── UserService.java
+│   │   │               └── OnlineBakeryStoreApplication.java
+│   │   ├── resources
+│   │   │   ├── static
+│   │   │   │   └── style.css
+│   │   │   ├── templates
+│   │   │   │   ├── aboutUs.html
+│   │   │   │   ├── chart.html
+│   │   │   │   ├── contactUs.html
+│   │   │   │   ├── dashboard.html
+│   │   │   │   ├── login.html
+│   │   │   │   ├── order.html
+│   │   │   │   ├── profile.html
+│   │   │   │   ├── service.html
+│   │   │   │   └── signup.html
+│   │   │   └── application.properties
+├── target
+├── .gitattributes
+├── .gitignore
+├── HELP.md
+├── mvnw
+├── mvnw.cmd
+├── pom.xml
+└── users.txt

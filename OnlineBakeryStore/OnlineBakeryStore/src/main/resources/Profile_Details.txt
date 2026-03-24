@@ -1,0 +1,6 @@
+Username: admin, Email: admin1@example.com, Password: admin555, Full Name: Admin, Telephone: 1234567890, IsAdmin: true
+Username: sadeep, Email: sadeepnimsara555@gmail.com, Password: sss, Full Name: Sadeep Nimsara Godage, Telephone: 0781267947, IsAdmin: false
+Username: gevindu, Email: it24102990@my.sliit.lk, Password: ggg, Full Name: gevindu jayarathna, Telephone: 0781267947, IsAdmin: false
+Username: nimsara, Email: nimsara@gmail.com, Password: nnn, Full Name: nimsaragodage, Telephone: 0781267947, IsAdmin: false
+Username: ashindu, Email: sfasshiya12@gmail.com, Password: 1234, Full Name: ashindu ineththara, Telephone: 0774136145, IsAdmin: false
+Username: sadeep11, Email: sadeepnimsara555@gmail.com, Password: 12345, Full Name: Sadeep Nimsara Godage, Telephone: 0781267947, IsAdmin: false

@@ -1,0 +1,301 @@
+/* order.css - Styles for order-related pages with centered box design */
+
+/* Main content styling */
+body {
+    background-color: rgb(94, 65, 38);
+    font-family: sans-serif;
+    color: white; /* Set default text color to white */
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Container styling for forms and tables - matches signup box */
+.order-container {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 40px;
+    margin: 80px auto;
+    width: 90%;
+    max-width: 500px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Headings */
+.order-container h2 {
+    color: white;
+    text-align: center;
+    margin-bottom: 25px;
+    font-size: 28px;
+}
+
+/* Form styling */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+form div {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: white;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="datetime-local"],
+input[type="password"],
+input[type="email"],
+input[type="tel"] {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 5px;
+    box-sizing: border-box;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+    font-size: 16px;
+}
+
+input::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+/* Button styling */
+button[type="submit"],
+.submit-btn,
+.button {
+    width: 100%;
+    padding: 12px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 10px;
+    transition: background-color 0.3s;
+}
+
+button[type="submit"]:hover,
+.submit-btn:hover,
+.button:hover {
+    background-color: #45a049;
+}
+
+/* Table styling - for chart.html */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    background-color: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    color: white;
+}
+
+th, td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+th {
+    background-color: rgba(70, 49, 29, 0.7);
+    color: white;
+}
+
+tr:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Link styling */
+a {
+    color: #4CAF50;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+a:hover {
+    color: #45a049;
+    text-decoration: underline;
+}
+
+/* Action buttons in table */
+.actions {
+    display: flex;
+    gap: 10px;
+}
+
+.actions form {
+    display: inline;
+}
+
+.actions button {
+    padding: 6px 12px;
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.actions button:hover {
+    background-color: #c82333;
+}
+
+/* Error message styling */
+.error {
+    color: #ff6b6b;
+    font-weight: bold;
+    margin: 10px 0;
+    text-align: center;
+}
+
+/* Responsive adjustments */
+@media (max-width: 800px) {
+    .order-container {
+        width: 85%;
+        padding: 30px;
+        margin-top: 100px;
+    }
+
+    table {
+        display: block;
+        overflow-x: auto;
+    }
+
+    .actions {
+        flex-direction: column;
+        gap: 5px;
+    }
+}
+
+/* Additional spacing for welcome message */
+.welcome-message {
+    margin: 20px 0;
+    text-align: center;
+    color: white;
+}
+
+/* Back link styling */
+.back-link {
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+    color: white;
+}
+
+.back-link a {
+    color: white;
+    text-decoration: underline;
+}
+
+.back-link a:hover {
+    color: #4CAF50;
+}
+/* Updated table styling to remove white space in rows */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    background-color: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    color: white;
+}
+
+table tr {
+    background-color: transparent;
+    transition: background-color 0.2s;
+}
+
+table tr:nth-child(even) {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+table tr:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+}
+
+th, td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+th {
+    background-color: rgba(70, 49, 29, 0.7);
+    color: white;
+    position: sticky;
+    top: 60px; /* Below the navigation bar */
+}
+
+/* Remove extra spacing between rows */
+tr {
+    line-height: 1.4;
+}
+
+/* Action buttons styling */
+.actions {
+    display: flex;
+    gap: 8px;
+}
+
+.actions a,
+.actions button {
+    padding: 6px 10px;
+    border-radius: 4px;
+    font-size: 14px;
+    text-align: center;
+}
+
+.actions a {
+    background-color: rgba(76, 175, 80, 0.7);
+    color: white;
+}
+
+.actions button {
+    background-color: rgba(220, 53, 69, 0.7);
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.actions a:hover {
+    background-color: rgba(76, 175, 80, 0.9);
+    text-decoration: none;
+}
+
+.actions button:hover {
+    background-color: rgba(220, 53, 69, 0.9);
+}
+
+/* Responsive adjustments */
+@media (max-width: 800px) {
+    th, td {
+        padding: 8px 10px;
+        font-size: 14px;
+    }
+
+    .actions {
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .actions a,
+    .actions button {
+        padding: 5px 8px;
+        font-size: 13px;
+    }
+}

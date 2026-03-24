@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" th:href="@{/style.css}">
+    <link rel="stylesheet" th:href="@{/order.css}">
+</head>
+<body>
+
+<!-- Navigation bar -->
+<nav>
+    <input type="checkbox" id="res-menu">
+    <label for="res-menu">
+        <i class="fas fa-bars" id="s1"></i>
+        <i class="fas fa-times" id="s2"></i>
+    </label>
+    <h2>Your Online</h2>
+    <h1>Bakery Store</h1>
+    <ul>
+        <li><a th:href="@{/dashboard}">Home</a></li>
+        <li><a th:href="@{/order}">Order</a></li>
+        <li><a th:href="@{/chart}">Cart</a></li>
+        <li><a th:href="@{/aboutUs}">About Us</a></li>
+        <li><a th:href="@{/service}">Services</a></li>
+        <li><a th:if="${isLoggedIn and isAdmin}" href="/admin-dashboard">User Details</a></li>
+        <li th:if="${!isLoggedIn}" class="nav-button"><a href="/login">Login</a></li>
+        <li th:if="${isLoggedIn}" class="nav-button"><a href="/profile">Profile</a></li>
+    </ul>
+</nav>
+
+<hr><hr>
+
+<div th:if="${isLoggedIn}">
+    <p>Welcome, <span th:text="${session.loggedInUser}"></span>! <a href="/logout">Logout</a></p>
+    <div th:if="${isAdmin}">
+        <a href="/admin-dashboard">Admin Dashboard</a>
+    </div>
+</div>
+<div th:unless="${isLoggedIn}">
+    <p><a href="/login">Login</a> | <a href="/register">Register</a></p>
+</div>
+
+<br><br><br><br><br>
+
+<h2>Place New Order</h2>
+
+<!-- Show error if any -->
+<div th:if="${error}" th:text="${error}" style="color: red;"></div>
+
+<!-- Order Form -->
+<form action="/order/place" method="post">
+    <div>
+        <label>Product Name:</label>
+        <select name="productName" required>
+            <option value="" disabled selected>Select a product</option>
+            <option value="Cake">Cake</option>
+            <option value="Bread">Bread</option>
+            <option value="Eggpuff">Eggpuff</option>
+            <option value="Croissant">Croissant</option>
+            <option value="Muffin">Muffin</option>
+            <option value="Doughnut">Doughnut</option>
+        </select>
+    </div>
+
+    <div>
+        <label>Quantity:</label>
+        <select name="quantity" required>
+            <option value="" disabled selected>Select quantity</option>
+            <option th:each="i : ${#numbers.sequence(1,10)}" th:value="${i}" th:text="${i}"></option>
+        </select>
+    </div>
+
+    <div>
+        <label>Scheduled Time:</label>
+        <input type="datetime-local" name="scheduledTime" required>
+    </div>
+
+    <div>
+        <button type="submit">Place Order</button>
+    </div>
+</form>
+
+</body>
+</html>
